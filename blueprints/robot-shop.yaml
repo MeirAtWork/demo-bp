@@ -39,8 +39,8 @@ grains:
         store: autogen_repo_sandbox_3c74bea0
         path: rds
       host:
-        cloud-account: AWS-DEV2
-        compute-service: review4-eks2
+        cloud-account: aws
+        compute-service: kubernetes-testing
       inputs:
         - sandbox_id: '{{ sandboxid | downcase }}'
         - size: '{{ .inputs.db_size }}' 
@@ -62,8 +62,8 @@ grains:
         store: autogen_repo_sandbox_3c74bea0
         path: s3
       host:
-        cloud-account: AWS-DEV2
-        compute-service: review4-eks2
+        cloud-account: aws
+        compute-service: kubernetes-testing
       inputs:
         - region: us-east-1
         - acl: private
@@ -79,8 +79,8 @@ grains:
         store: autogen_repo_sandbox_3c74bea0
         path: robotShop
       host:
-        cloud-account: AWS-DEV2
-        compute-service: review4-eks2
+        cloud-account: aws
+        compute-service: kubernetes-testing
       # commands:
       #   - "dep up xxx"
 
