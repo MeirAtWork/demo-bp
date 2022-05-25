@@ -36,7 +36,7 @@ grains:
     kind: terraform
     spec:
       source:
-        store: autogen_repo_sandbox_3c74bea0
+        store: demo-bp
         path: rds
       host:
         cloud-account: aws
@@ -59,7 +59,7 @@ grains:
     kind: terraform
     spec: 
       source:
-        store: autogen_repo_sandbox_3c74bea0
+        store: demo-bp
         path: s3
       host:
         cloud-account: aws
@@ -76,7 +76,7 @@ grains:
     depends-on: mySqlDB, s3Bucket
     spec:
       source:
-        store: autogen_repo_sandbox_3c74bea0
+        store: demo-bp
         path: robotShop
       host:
         cloud-account: aws
