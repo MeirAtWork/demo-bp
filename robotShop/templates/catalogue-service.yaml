@@ -3,7 +3,7 @@ kind: Service
 metadata:
   labels:
     service: catalogue
-  name: {{ include "robotShop.fullname" . }}
+  name: "{{ include "robotShop.fullname" . }}-catalogue"
 spec:
   ports:
   - name: http
