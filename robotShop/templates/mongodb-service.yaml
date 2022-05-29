@@ -3,7 +3,7 @@ kind: Service
 metadata:
   labels:
     service: mongodb
-  name: mongodb
+  name: {{ include "robotShop.fullname" . }}
 spec:
   ports:
   - name: mongo

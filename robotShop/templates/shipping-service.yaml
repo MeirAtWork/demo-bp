@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: shipping
+  name: {{ include "robotShop.fullname" . }}
   labels:
     service: shipping
 spec:
