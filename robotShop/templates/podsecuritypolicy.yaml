@@ -2,7 +2,7 @@
 apiVersion: policy/v1beta1
 kind: PodSecurityPolicy
 metadata:
-  name: robot-shop
+  name: "{{ include "robotShop.fullname" . }}-robot-shop"
 spec:
   allowPrivilegeEscalation: false
   fsGroup:

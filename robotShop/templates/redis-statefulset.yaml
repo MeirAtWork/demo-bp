@@ -3,7 +3,7 @@ kind: StatefulSet
 metadata:
   labels:
     service: redis
-  name: redis
+  name: "{{ include "robotShop.fullname" . }}-redis"
 spec:
   replicas: 1
   selector:
