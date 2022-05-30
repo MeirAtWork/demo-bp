@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mongodb
+  name: "{{ include "robotShop.fullname" . }}-mongodb"
   labels:
     service: mongodb
 spec:

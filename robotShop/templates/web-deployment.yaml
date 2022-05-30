@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web
+  name: "{{ include "robotShop.fullname" . }}-web"
   labels:
     service: web
 spec:
