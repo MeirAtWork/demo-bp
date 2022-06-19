@@ -1,0 +1,33 @@
+spec_version: 2-preview
+description: demo of Task grain
+
+
+inputs:
+  version:
+    type: string
+    display-style: normal
+    default: "0.4.3"
+    description: "Version of the robotShop micorservices application"
+
+
+# values that starts with '{' for liquid template must be encosed with quotes so YAML won't consider them as dict
+outputs:
+  DB_Hostname:
+    value: '{{ .grains.mySqlDB.outputs.hostname }}'
+
+
+grains:
+
+  configureService:
+    kind: task
+    spec:
+      source:
+        store: demo-bp
+        path: robotShop
+      host:
+        compute-service: kubernetes-testing1
+      # commands:
+      #   - "dep up xxx"
+
+      inputs:
+        - version: '{{ .inputs.version }}'
