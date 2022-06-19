@@ -13,7 +13,7 @@ inputs:
 # values that starts with '{' for liquid template must be encosed with quotes so YAML won't consider them as dict
 outputs:
   DB_Hostname:
-    value: '{{ .grains.mySqlDB.outputs.hostname }}'
+    value: '{{ .grains.configureService.outputs.hostname }}'
 
 
 grains:
