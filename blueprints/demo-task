@@ -19,15 +19,26 @@ outputs:
 grains:
 
   configureService:
-    kind: task
+    kind: shell
     spec:
-      source:
-        store: demo-bp
-        path: robotShop
+      container: 
+        image: http://.../
       host:
         compute-service: kubernetes-testing1
-      # commands:
-      #   - "dep up xxx"
+      files: 
+        - path: '~/script.sh'
+          source: http://github.com/.../script.sh
+      activities:
+        deploy:
+          commands: 
+            - '~/script.sh create arg={{ .inputs.arg }}'
+            - name: var-output
+              command: echo $ENV_VAR
+            - name: file-output
+              command: cat ~/file-name
+            - name: command-output
+              command: sudo apt-get update
 
-      inputs:
-        - version: '{{ .inputs.version }}'
+        destroy:
+          commands:
+            - ~/script.sh destroy
