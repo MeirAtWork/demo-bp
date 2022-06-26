@@ -10,6 +10,12 @@ inputs:
     default: "0.4.3"
     description: "Version of the robotShop micorservices application"
 
+  myVal:
+    type: string
+    display-style: normal
+    default: "0.4.3"
+    description: "Version of the robotShop micorservices application"
+
 
 # values that starts with '{' for liquid template must be encosed with quotes so YAML won't consider them as dict
 outputs:
@@ -22,24 +28,17 @@ grains:
   configureService:
     kind: shell
     spec:
-      container: 
-        image: http://.../
       host:
-        compute-service: kubernetes-testing1
+        name: vcenter
+        image: http://.../
       files: 
         - path: '~/script.sh'
           source: http://github.com/.../script.sh
       activities:
         deploy:
           commands: 
-            - '~/script.sh create arg={{ .inputs.arg }}'
-            - name: var-output
-              command: echo $ENV_VAR
-            - name: file-output
-              command: cat ~/file-name
-            - name: command-output
-              command: sudo apt-get update
+            - 'echo {{ .inputs.version }}'
 
         destroy:
           commands:
-            - ~/script.sh destroy
+            - 'echo {{ .inputs.myVal }}'
