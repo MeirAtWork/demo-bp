@@ -19,7 +19,7 @@ inputs:
   mySecondVal:
     type: string
     display-style: normal
-    default: "jp"
+    default: "jerusalem"
     description: "test value"
 
 
