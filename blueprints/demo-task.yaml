@@ -49,7 +49,7 @@ grains:
           commands: 
             - 'wget {{ .inputs.filePath }}'
             - name: security_check
-              command: sync check  MY_CUSTOM_ENV_VAR=123 ...
+              command: sync check  MY_CUSTOM_ENV_VAR=123 
 
         destroy:
           commands:
