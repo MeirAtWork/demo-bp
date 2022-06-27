@@ -4,23 +4,36 @@ description: demo of Task grain
 
 
 inputs:
-  version:
+  filePath:
     type: string
     display-style: normal
     default: "0.4.3"
-    description: "Version of the robotShop micorservices application"
+    description: "path to file to download"
 
   myVal:
     type: string
     display-style: normal
     default: "jp"
-    description: "Version of the robotShop micorservices application"
+    description: "stam value"
+
+  mySecondVal:
+    type: string
+    display-style: normal
+    default: "jp"
+    description: "test value"
 
 
 # values that starts with '{' for liquid template must be encosed with quotes so YAML won't consider them as dict
 outputs:
   DB_Hostname:
-    value: '{{ .grains.configureService.outputs.hostname }}'
+    value: '{{ .grains.configureService.deploy.commands.security_check.output }}'
+
+
+env-var: 
+  - name: VAR_NAME1
+    value: value1
+  - name: VAR_NAME2
+    value: '{{ .inputs.mySecondVal }}'
 
 
 grains:
@@ -31,13 +44,12 @@ grains:
       host:
         name: vcenter
         image: http://.../
-      files: 
-        - path: '~/script.sh'
-          source: http://github.com/.../script.sh
       activities:
         deploy:
           commands: 
-            - 'echo {{ .inputs.version }}'
+            - 'wget {{ .inputs.filePath }}'
+            - name: security_check
+              value: sync check  MY_CUSTOM_ENV_VAR=123 ...
 
         destroy:
           commands:
