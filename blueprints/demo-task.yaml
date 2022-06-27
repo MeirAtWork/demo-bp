@@ -29,7 +29,7 @@ outputs:
     value: '{{ .grains.configureService.deploy.commands.security_check.output }}'
 
 
-env-var:
+env-vars:
   - name: VAR_NAME1
     value: value1
   - name: VAR_NAME2
