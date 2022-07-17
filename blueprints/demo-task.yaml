@@ -43,13 +43,14 @@ grains:
     spec:
       host:
         name: vcenter
-        image: http://.../
+        # image: http://
       activities:
         deploy:
           commands: 
+            - 'apt-get -y install wget'
             - 'wget {{ .inputs.filePath }}'
-            - name: security_check
-              command: sync check  MY_CUSTOM_ENV_VAR=123 
+            - name: execute
+              command: python3 {{ .inputs.filePath }}
 
         destroy:
           commands:
