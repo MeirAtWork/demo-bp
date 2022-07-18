@@ -26,14 +26,14 @@ inputs:
 # values that starts with '{' for liquid template must be encosed with quotes so YAML won't consider them as dict
 # outputs:
 #  result:
-#    value: '{{ .grains.configureService.deploy.commands.execute_algo.output }}'
+#    value: "{{ .grains.configureService.deploy.commands.execute_algo.output }}"
 
 
 env-vars:
   - name: VAR_NAME1
     value: value1
   - name: VAR_NAME2
-    value: '{{ .inputs.mySecondVal }}'
+    value: "{{ .inputs.mySecondVal }}"
 
 
 grains:
@@ -47,11 +47,11 @@ grains:
       activities:
         deploy:
           commands: 
-            - 'apt-get -y install wget'
-            - 'wget {{ .inputs.filePath }}'
+            - "apt-get -y install wget"
+            - "wget {{ .inputs.filePath }}"
             - name: execute_algo
               command: python3 {{ .inputs.filePath }}
 
         destroy:
           commands:
-            - 'echo {{ .inputs.myVal }}'
+            - "echo {{ .inputs.myVal }}"
