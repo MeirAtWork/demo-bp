@@ -10,7 +10,7 @@ inputs:
     default: "0.4.3"
     description: "path to file to download"
 
-  myVal:
+  fileName:
     type: string
     display-style: normal
     default: "jp"
@@ -50,8 +50,8 @@ grains:
             - "apt-get -y install wget"
             - "wget {{ .inputs.filePath }}"
             - name: execute_algo
-              command: python3 {{ .inputs.filePath }}
+              command: python3 {{ .inputs.fileName }}
 
         destroy:
           commands:
-            - "echo {{ .inputs.myVal }}"
+            - "echo {{ .inputs.mySecondVal }}"
