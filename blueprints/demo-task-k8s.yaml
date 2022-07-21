@@ -7,14 +7,14 @@ inputs:
   filePath:
     type: string
     display-style: normal
-    default: "0.4.3"
+    default: "https://gist.githubusercontent.com/MeirAtWork/b7cd33fe4fa1e30f599e1199587a8da7/raw/2ff145d67ef75bf3d735147f45a28f58d34a0b53/check.py"
     description: "path to file to download"
 
   fileName:
     type: string
     display-style: normal
-    default: "jp"
-    description: "stam value"
+    default: "check.py"
+    description: "the file name"
 
   mySecondVal:
     type: string
