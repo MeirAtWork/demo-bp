@@ -39,7 +39,7 @@ grains:
         # image: http://
       env-vars:
         - name: VAR_NAME1
-          value: value1
+          value: "value1"
         - name: VAR_NAME2
           value: "{{ .inputs.mySecondVal }}"
       activities:
