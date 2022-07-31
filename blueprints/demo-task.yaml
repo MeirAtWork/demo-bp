@@ -29,13 +29,6 @@ inputs:
 #    value: "{{ .grains.configureService.deploy.commands.execute_algo.output }}"
 
 
-env-vars:
-  - name: VAR_NAME1
-    value: value1
-  - name: VAR_NAME2
-    value: "{{ .inputs.mySecondVal }}"
-
-
 grains:
 
   configureService:
@@ -44,6 +37,11 @@ grains:
       host:
         name: vcenter
         # image: http://
+      env-vars:
+        - name: VAR_NAME1
+          value: value1
+        - name: VAR_NAME2
+          value: "{{ .inputs.mySecondVal }}"
       activities:
         deploy:
           commands: 
