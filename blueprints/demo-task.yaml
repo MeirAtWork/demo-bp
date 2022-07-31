@@ -49,6 +49,7 @@ grains:
             - "wget {{ .inputs.filePath }}"
             - name: execute_algo
               command: python3 {{ .inputs.fileName }}
+            - "echo \"$VAR_NAME1\""
 
         destroy:
           commands:
