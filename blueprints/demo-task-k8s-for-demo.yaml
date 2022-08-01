@@ -7,14 +7,19 @@ inputs:
   repoUrl:
     type: string
     display-style: normal
-    default: ""
+    default: "github.com/QualiNext/test-spec2-public"
     description: "path to the repo to clone"
 
-  fileName:
+  filePath:
     type: string
     display-style: normal
-    default: ""
+    default: "manifests/nginx1/nginxmanifest.yaml"
     description: "the file name in the repo"
+
+  namespace:
+    type: string
+    display-style: normal
+    description: "Kubernetes namespace for sandbox to be ran in"
 
 grains:
   validate:
@@ -28,4 +33,13 @@ grains:
             - "apt-get -y install git unzip"
             - "git clone {{ .inputs.repoUrl }}"
             - "curl https://get.datree.io | /bin/bash"
-            - "datree test {{.inputs.fileName}}.yaml"
+            - "datree test {{.inputs.filePath}}.yaml"
+
+  installNginx:
+    kind: kubernetes
+    spec:
+      host:
+        name: kubernetes-testing1
+      source:
+        path: {{.inputs.repoUrl}}.git//{{.inputs.filePath}}
+      namespace: '{{ .inputs.namespace }}'
