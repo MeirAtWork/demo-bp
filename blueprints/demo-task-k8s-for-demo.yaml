@@ -1,0 +1,31 @@
+kind: bluperint 
+spec_version: 2-preview
+description: demo of Task grain
+
+
+inputs:
+  repoUrl:
+    type: string
+    display-style: normal
+    default: ""
+    description: "path to the repo to clone"
+
+  fileName:
+    type: string
+    display-style: normal
+    default: ""
+    description: "the file name in the repo"
+
+grains:
+  validate:
+    kind: shell
+    spec:
+      host:
+        name: kubernetes-testing1
+      activities:
+        deploy:
+          commands: 
+            - "apt-get -y install git unzip"
+            - "git clone {{ .inputs.repoUrl }}"
+            - "curl https://get.datree.io | /bin/bash"
+            - "datree test {{.inputs.fileName}}.yaml"
