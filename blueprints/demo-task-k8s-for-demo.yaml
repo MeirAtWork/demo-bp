@@ -41,5 +41,5 @@ grains:
       host:
         name: kubernetes-testing1
       source:
-        path: {{.inputs.repoUrl}}.git//{{.inputs.filePath}}
+        path: "{{.inputs.repoUrl}}.git//{{.inputs.filePath}}"
       namespace: '{{ .inputs.namespace }}'
