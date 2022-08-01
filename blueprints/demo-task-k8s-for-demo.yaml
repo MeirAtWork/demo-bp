@@ -19,6 +19,7 @@ inputs:
   namespace:
     type: string
     display-style: normal
+    default: "meir-sandboxes"
     description: "Kubernetes namespace for sandbox to be ran in"
 
 grains:
