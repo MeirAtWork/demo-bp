@@ -43,5 +43,5 @@ grains:
       host:
         name: kubernetes-testing1
       source:
-        path: "{{.inputs.repoUrl}}.git//{{.inputs.filePath}}"
+        path: "github.com/QualiNext/test-spec2-public.git//{{.inputs.filePath}}"
       namespace: '{{ .inputs.namespace }}'
