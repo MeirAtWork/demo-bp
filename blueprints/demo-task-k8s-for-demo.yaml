@@ -32,6 +32,7 @@ grains:
         deploy:
           commands:
             - "apt-get -y install git unzip"
+            - "git clone {{ .inputs.repoUrl }}"
 
   installNginx:
     kind: kubernetes
