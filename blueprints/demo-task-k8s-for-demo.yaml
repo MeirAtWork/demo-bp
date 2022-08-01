@@ -30,11 +30,8 @@ grains:
         name: kubernetes-testing1
       activities:
         deploy:
-          commands: 
+          commands:
             - "apt-get update -y && apt-get upgrade -y && apt-get -y install git unzip"
-            - "git clone {{ .inputs.repoUrl }}"
-            - "curl https://get.datree.io | /bin/bash"
-            - "datree test {{.inputs.filePath}}.yaml"
 
   installNginx:
     kind: kubernetes
