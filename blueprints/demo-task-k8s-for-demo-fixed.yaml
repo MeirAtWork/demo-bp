@@ -7,7 +7,7 @@ inputs:
   repoUrl:
     type: string
     display-style: normal
-    default: "http://github.com/QualiNext/test-spec2-public"
+    default: "http://github.com/MeirAtWork/test-spec2-public"
     description: "path to the repo to clone"
 
   repoName:
