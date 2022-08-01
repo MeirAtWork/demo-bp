@@ -7,7 +7,7 @@ inputs:
   repoUrl:
     type: string
     display-style: normal
-    default: "github.com/QualiNext/test-spec2-public"
+    default: "http://github.com/QualiNext/test-spec2-public"
     description: "path to the repo to clone"
 
   filePath:
@@ -33,6 +33,8 @@ grains:
           commands:
             - "apt-get -y install git unzip"
             - "git clone {{ .inputs.repoUrl }}"
+            - "curl https://get.datree.io | /bin/bash"
+            - "datree test {{.inputs.filePath}}.yaml"
 
   installNginx:
     kind: kubernetes
