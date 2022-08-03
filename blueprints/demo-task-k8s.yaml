@@ -38,7 +38,7 @@ grains:
         name: kubernetes-testing1
         # image: http://
       env-vars:
-        - VAR_NAME1: value1
+        - VAR_NAME1: value_for_testing
         - VAR_NAME2: "{{ .inputs.mySecondVal }}"
       activities:
         deploy:
