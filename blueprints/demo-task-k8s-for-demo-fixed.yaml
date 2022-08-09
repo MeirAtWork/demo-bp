@@ -63,7 +63,7 @@ grains:
       host:
         name: kubernetes-testing1
       activities:
-        destroy:
+        deploy:
           commands:
             - "apt-get -y install wget"
             - "wget https://raw.githubusercontent.com/MeirAtWork/AppScripts/main/simple.sh"
