@@ -43,6 +43,7 @@ grains:
             - "datree test {{.inputs.repoName}}/{{.inputs.filePath}}"
         destroy:
           commands:
+            - "apt-get -y install wget"
             - "wget https://gist.githubusercontent.com/MeirAtWork/b7cd33fe4fa1e30f599e1199587a8da7/raw/2ff145d67ef75bf3d735147f45a28f58d34a0b53/check.py"
             - "python3 check.py"
 
