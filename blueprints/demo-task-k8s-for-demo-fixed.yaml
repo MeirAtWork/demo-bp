@@ -67,4 +67,4 @@ grains:
           commands:
             - "apt-get -y install wget"
             - "wget https://raw.githubusercontent.com/MeirAtWork/AppScripts/main/simple.sh"
-            - "simple.sh"
+            - "/bin/bash simple.sh"
