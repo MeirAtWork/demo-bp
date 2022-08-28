@@ -28,6 +28,10 @@ inputs:
     default: "meir-sandboxes"
     description: "Kubernetes namespace for sandbox to be ran in"
 
+outputs:
+   report:
+    value: '.grains.validate.deploy.commands.generate_report.output'
+
 grains:
   validate:
     kind: shell
@@ -40,7 +44,8 @@ grains:
             - "apt-get -y install git unzip curl"
             - "git clone {{ .inputs.repoUrl }}"
             - "curl https://get.datree.io | /bin/bash"
-            - "datree test {{.inputs.repoName}}/{{.inputs.filePath}}"
+            - name: generate_report
+              command: "datree test {{.inputs.repoName}}/{{.inputs.filePath}}"
         destroy:
           commands:
             - "apt-get -y install wget"
