@@ -47,12 +47,3 @@ grains:
             - name: generate_report
               command: "datree test {{.inputs.repoName}}/{{.inputs.filePath}}"
 
-  installNginx:
-    kind: kubernetes
-    depends-on: validate
-    spec:
-      host:
-        name: kubernetes-testing1
-      source:
-        path: github.com/QualiNext/test-spec2-public.git//manifests/nginx1/nginxmanifest-fixed.yaml
-      namespace: '{{ .inputs.namespace }}'
