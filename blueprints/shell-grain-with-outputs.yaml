@@ -30,7 +30,7 @@ inputs:
 
 outputs:
    report:
-    value: '{{ .grains.validate.activities.deploy.commands.generate_report.output }}'
+    value: '{{ .grains.validate.activities.deploy.commands.generate_report }}'
 
 grains:
   validate:
