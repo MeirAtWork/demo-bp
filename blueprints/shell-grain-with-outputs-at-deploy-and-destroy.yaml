@@ -30,7 +30,7 @@ inputs:
 
 outputs:
    deploy_report:
-    value: '{{ .grains.validate.activities.destroy.commands.generate_deploy_report.output }}'
+    value: '{{ .grains.validate.activities.deploy.commands.generate_deploy_report.output }}'
    destroy_report:
     value: '{{ .grains.validate.activities.destroy.commands.generate_destroy_report.output }}'
 
