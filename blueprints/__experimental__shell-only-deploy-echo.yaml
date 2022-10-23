@@ -22,4 +22,4 @@ grains:
         deploy:
           commands:
             - name: report
-            - command: "echo setup script is running..."
+              command: "echo setup script is running..."
