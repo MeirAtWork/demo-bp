@@ -20,4 +20,4 @@ grains:
         deploy:
           commands:
             - name: report
-              command: "echo teardown script is running..."
+              command: "echo setup script is running..."
