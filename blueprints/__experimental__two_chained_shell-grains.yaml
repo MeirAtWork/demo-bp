@@ -1,0 +1,35 @@
+spec_version: 2
+description: testing sandbox...
+
+inputs:
+  host_name:
+    type: execution-host
+
+outputs:
+   deploy_report:
+    value: '{{ .grains.first.activities.deploy.commands.report.output }}'
+
+    
+grains:
+  first:
+    kind: shell
+    spec: 
+      host:
+        name: '{{ .inputs.host_name }}'
+      activities:
+        deploy:
+          commands:
+            - name: report
+              command: "echo first setup script is running..."
+  second:
+    kind: shell
+    depends-on: first
+    spec: 
+      host:
+        name: '{{ .inputs.host_name }}'
+      activities:
+        deploy:
+          commands:
+            - name: report
+              command: "echo {{ .grains.first.activities.deploy.commands.report.output }}"
+              
