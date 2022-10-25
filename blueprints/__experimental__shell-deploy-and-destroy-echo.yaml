@@ -9,7 +9,7 @@ outputs:
    deploy_report:
     value: '{{ .grains.setup.activities.deploy.commands.report.output }}'
    destroy_report:
-    value: '{{ .grains.validate.activities.destroy.commands.generate_destroy_report.output }}'
+    value: '{{ .grains.validate.activities.destroy.commands.report.output }}'
 
     
 grains:
