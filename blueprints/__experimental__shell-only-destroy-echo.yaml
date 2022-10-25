@@ -19,4 +19,4 @@ grains:
         destroy:
           commands:
             - name: report
-              command: "echo setup script is running..."
+              command: "echo teardown script is running..."
