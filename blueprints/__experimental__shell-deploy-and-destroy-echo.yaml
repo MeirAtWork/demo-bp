@@ -1,0 +1,30 @@
+spec_version: 2
+description: testing sandbox...
+
+inputs:
+  host_name:
+    type: execution-host
+
+outputs:
+   deploy_report:
+    value: '{{ .grains.setup.activities.deploy.commands.report.output }}'
+   destroy_report:
+    value: '{{ .grains.validate.activities.destroy.commands.generate_destroy_report.output }}'
+
+    
+grains:
+  setup:
+    kind: shell
+    spec: 
+      host:
+        name: '{{ .inputs.host_name }}'
+      activities:
+        deploy:
+          commands:
+            - name: report
+              command: "echo setup script is running..."
+        destroy:
+          commands:
+            - name: report
+              command: "echo teardown script is running..."
+              
