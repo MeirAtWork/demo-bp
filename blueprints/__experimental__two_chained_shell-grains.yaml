@@ -8,6 +8,8 @@ inputs:
 outputs:
    deploy_report:
     value: '{{ .grains.first.activities.deploy.commands.report.output }}'
+   destroy_report:
+    value: '{{ .grains.first.activities.destroy.commands.report.output }}'
 
     
 grains:
