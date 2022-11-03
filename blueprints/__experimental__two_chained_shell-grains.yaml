@@ -33,5 +33,5 @@ grains:
         deploy:
           commands:
             - name: report
-              command: "echo {{ .grains.first.activities.deploy.commands.report.output }}"
+              command: "echo this is the output of the first grain: {{ .grains.first.activities.deploy.commands.report.output }}"
               
