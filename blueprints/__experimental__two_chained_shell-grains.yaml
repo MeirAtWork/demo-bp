@@ -6,9 +6,9 @@ inputs:
     type: execution-host
 
 outputs:
-   deploy_report:
+   first_deploy_report:
     value: '{{ .grains.first.activities.deploy.commands.report.output }}'
-   destroy_report:
+   second_deploy_report:
     value: '{{ .grains.second.activities.deploy.commands.report.output }}'
 
     
