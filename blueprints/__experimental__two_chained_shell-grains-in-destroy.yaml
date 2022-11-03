@@ -33,4 +33,4 @@ grains:
         destroy:
           commands:
             - name: report
-              command: "echo this is second grain's teardown script"
+              command: "echo this is second grain teardown script"
