@@ -13,6 +13,7 @@ grains:
         path: https://github.com/QualiNext/test-spec2-public//terraform/s3
       host:
         name: kubernetes-testing1
+        service-account: meir-service-account
       inputs:
         - region: eu-west-1
         - acl: private
