@@ -45,6 +45,4 @@ grains:
             - "git clone {{ .inputs.repoUrl }}"
             - "curl https://get.datree.io | /bin/bash"
             - name: generate_report
-              command: "datree test "
-              # {{.inputs.repoName}}/{{.inputs.filePath}}
-
+              command: "datree test {{.inputs.repoName}}/{{.inputs.filePath}}"
