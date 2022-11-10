@@ -1,0 +1,33 @@
+spec_version: 2-preview
+description: "PoC aws s3 cfn blueprint"
+
+inputs:
+   # The access_control property is case-sensitive and must be one of the following values:
+   # Private, PublicRead, PublicReadWrite, AuthenticatedRead, LogDeliveryWrite, BucketOwnerRead, BucketOwnerFullControl, or AwsExecRead
+   access_control:
+       type: string
+       display-style: normal
+       default: "Private"
+
+outputs:
+   arn:
+       value: '{{ .grains.cfn-s3-grain.outputs.Arn }}'
+   name:
+       value: '{{ .grains.cfn-s3-grain.outputs.DomainName }}'
+
+grains:
+  cfn-s3-grain:
+    kind: cloudformation
+    spec:
+      source:
+        # store: autogen_repo_sandbox_3416a76b
+        path: https://quali-dannyk-storage.s3.amazonaws.com/AWSS3Bucket_in_out.json    
+      region: us-east-1
+      authentication:
+        role-arn: 'arn:aws:iam::799617105972:role/Yakir_Role_S3_Testing'
+        external-id: 'f5d5910e-3809-531e-f763-b97a23c6552b'
+      inputs:
+        - accesscontrol: '{{ .inputs.access_control }}'
+      outputs:
+         - Arn
+         - DomainName
