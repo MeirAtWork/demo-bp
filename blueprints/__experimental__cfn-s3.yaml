@@ -24,8 +24,8 @@ grains:
         path: https://quali-dannyk-storage.s3.amazonaws.com/AWSS3Bucket_in_out.json    
       region: us-east-1
       authentication:
-        role-arn: arn:aws:iam::799617105972:role/Yakir_Role_S3_Testing
-        external-id: f5d5910e-3809-531e-f763-b97a23c6552b
+        role-arn: 'arn:aws:iam::799617105972:role/Yakir_Role_S3_Testing'
+        external-id: 'f5d5910e-3809-531e-f763-b97a23c6552b'
       inputs:
         - accesscontrol: '{{ .inputs.access_control }}'
       outputs:
